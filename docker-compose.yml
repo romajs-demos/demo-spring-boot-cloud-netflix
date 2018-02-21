@@ -1,0 +1,47 @@
+version: '2'
+networks:
+  demo-spring-cloud-netflix:
+    driver: bridge
+services:
+  eureka-server:
+    image: anapsix/alpine-java:8_jdk
+    volumes:
+      - ./eureka-server/target/eureka-server.jar:/eureka-server.jar
+      - ./eureka-server/entrypoint.sh:/entrypoint.sh
+    entrypoint: /entrypoint.sh
+    networks:
+      - demo-spring-cloud-netflix
+    ports:
+      - "8761:8761"
+  eureka-client:
+    image: anapsix/alpine-java:8_jdk
+    volumes:
+      - ./eureka-client/target/eureka-client.jar:/eureka-client.jar
+      - ./eureka-client/entrypoint.sh:/entrypoint.sh
+    entrypoint: /entrypoint.sh
+    networks:
+      - demo-spring-cloud-netflix
+    depends_on:
+      - eureka-server
+    links:
+      - eureka-server:eureka-server
+    environment:
+      EUREKA_URI: http://eureka-server:8761/eureka
+  feign-client:
+    image: anapsix/alpine-java:8_jdk
+    volumes:
+      - ./feign-client/target/feign-client.jar:/feign-client.jar
+      - ./feign-client/entrypoint.sh:/entrypoint.sh
+    entrypoint: /entrypoint.sh
+    networks:
+      - demo-spring-cloud-netflix
+    ports:
+      - "8080:8080"
+    depends_on:
+      - eureka-server
+      - eureka-client
+    links:
+      - eureka-server:eureka-server
+      - eureka-client:eureka-client
+    environment:
+      EUREKA_URI: http://eureka-server:8761/eureka
