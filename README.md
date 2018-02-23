@@ -1,8 +1,8 @@
 # demo-spring-cloud-netflix
 
 [![java-jdk](https://img.shields.io/badge/java%20jdk-1.8-brightgreen.svg)]()
-[![spring-boot](https://img.shields.io/badge/spring%20boot-1.4.0.RELEASE-green.svg)]()
-[![spring-boot](https://img.shields.io/badge/spring%20cloud-Brixton.SR4-green.svg)]()
+[![spring-boot](https://img.shields.io/badge/spring%20boot-2.0.0.RC1-brightgreen.svg)]()
+[![spring-boot](https://img.shields.io/badge/spring%20cloud-Finchley.M6-brightgreen.svg)]()
 
 Tutorial: http://www.baeldung.com/spring-cloud-netflix-eureka
 
@@ -14,8 +14,10 @@ Tutorial: http://www.baeldung.com/spring-cloud-netflix-eureka
 
 ## Development
 
-1. Build with maven: `mvn package`
-2. Get environment running with docker-compose: `docker-compose up`
+1. Build: `mvn package`
+2. Get environment up & running: `docker-compose up`
 
-* Eureka Server: http://0.0.0.0:8761/
-* Feign Client (get-greeting): http://0.0.0.0:8080/get-greeting
+* Eureka-server: http://localhost:8761/
+* Feign-client (get-greeting): http://localhost:8080/get-greeting
+
+*Obs: Wait for Feign-client to register with Eureka-server*
