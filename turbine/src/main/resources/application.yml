@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: spring-cloud-turbine
+
+server:
+  port: 8082
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+
+turbine:
+  clusterNameExpression: new String("default")
+  appConfig: spring-cloud-eureka-feign-client
+  combineHostPort: true
+  instanceUrlSuffix: /actuator/hystrix.stream

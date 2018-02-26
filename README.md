@@ -19,5 +19,7 @@ Tutorial: http://www.baeldung.com/spring-cloud-netflix-eureka
 
 * Eureka-server: http://localhost:8761/
 * Feign-client (get-greeting): http://localhost:8080/get-greeting
+* Turbine stream: http://172.16.58.90:8082/turbine.stream
+* Hystrix dashboard: http://172.16.58.90:8081/hystrix/monitor?stream=http%3A%2F%2F172.16.58.90%3A8082%2Fturbine.stream
 
 *Obs: Wait for Feign-client to register with Eureka-server*

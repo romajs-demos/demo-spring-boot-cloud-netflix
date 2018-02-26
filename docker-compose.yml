@@ -36,3 +36,31 @@ services:
       - eureka-client:eureka-client
     environment:
       EUREKA_URI: http://eureka-server:8761/eureka
+  hystrix-dashboard:
+    image: anapsix/alpine-java:8_jdk
+    volumes:
+      - ./hystrix-dashboard/target/hystrix-dashboard.jar:/hystrix-dashboard.jar
+      - ./hystrix-dashboard/entrypoint.sh:/entrypoint.sh
+    entrypoint: /entrypoint.sh
+    ports:
+      - "8081:8081"
+    depends_on:
+      - eureka-server
+    links:
+      - eureka-server:eureka-server
+    environment:
+      EUREKA_URI: http://eureka-server:8761/eureka
+  turbine:
+    image: anapsix/alpine-java:8_jdk
+    volumes:
+      - ./turbine/target/turbine.jar:/turbine.jar
+      - ./turbine/entrypoint.sh:/entrypoint.sh
+    entrypoint: /entrypoint.sh
+    ports:
+      - "8082:8082"
+    depends_on:
+      - eureka-server
+    links:
+      - eureka-server:eureka-server
+    environment:
+      EUREKA_URI: http://eureka-server:8761/eureka
