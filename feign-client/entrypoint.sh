@@ -1,2 +1,2 @@
 #!/bin/sh
-java -jar /feign-client.jar
+java -jar /app.jar

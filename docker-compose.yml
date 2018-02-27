@@ -3,7 +3,7 @@ services:
   eureka-server:
     image: anapsix/alpine-java:8_jdk
     volumes:
-      - ./eureka-server/target/eureka-server.jar:/eureka-server.jar
+      - ./eureka-server/target/eureka-server.jar:/app.jar
       - ./eureka-server/entrypoint.sh:/entrypoint.sh
     entrypoint: /entrypoint.sh
     ports:
@@ -11,7 +11,7 @@ services:
   eureka-client:
     image: anapsix/alpine-java:8_jdk
     volumes:
-      - ./eureka-client/target/eureka-client.jar:/eureka-client.jar
+      - ./eureka-client/target/eureka-client.jar:/app.jar
       - ./eureka-client/entrypoint.sh:/entrypoint.sh
     entrypoint: /entrypoint.sh
     depends_on:
@@ -23,7 +23,7 @@ services:
   feign-client:
     image: anapsix/alpine-java:8_jdk
     volumes:
-      - ./feign-client/target/feign-client.jar:/feign-client.jar
+      - ./feign-client/target/feign-client.jar:/app.jar
       - ./feign-client/entrypoint.sh:/entrypoint.sh
     entrypoint: /entrypoint.sh
     ports:
@@ -39,7 +39,7 @@ services:
   hystrix-dashboard:
     image: anapsix/alpine-java:8_jdk
     volumes:
-      - ./hystrix-dashboard/target/hystrix-dashboard.jar:/hystrix-dashboard.jar
+      - ./hystrix-dashboard/target/hystrix-dashboard.jar:/app.jar
       - ./hystrix-dashboard/entrypoint.sh:/entrypoint.sh
     entrypoint: /entrypoint.sh
     ports:
@@ -53,7 +53,7 @@ services:
   turbine:
     image: anapsix/alpine-java:8_jdk
     volumes:
-      - ./turbine/target/turbine.jar:/turbine.jar
+      - ./turbine/target/turbine.jar:/app.jar
       - ./turbine/entrypoint.sh:/entrypoint.sh
     entrypoint: /entrypoint.sh
     ports:

@@ -5,14 +5,22 @@ spring:
 server:
   port: 8082
 
+info:
+  app:
+    name: Turbine
+    description: Turbine
+    version: @project.version@
+
 eureka:
   client:
+    healthcheck:
+      enabled: false
     serviceUrl:
       defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-    healthcheck:
-      enabled: true
-    lease:
-      duration: 5
+  instance:
+    preferIpAddress: true
+    statusPageUrlPath: /actuator/info
+    healthCheckUrlPath: /actuator/health
 
 turbine:
   clusterNameExpression: new String("default")

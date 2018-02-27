@@ -1,2 +1,2 @@
 #!/bin/sh
-java -jar /eureka-server.jar
+java -jar /app.jar

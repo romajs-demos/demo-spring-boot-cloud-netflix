@@ -5,6 +5,12 @@ spring:
 server:
   port: 0
 
+info:
+  app:
+    name: Eureka Client
+    description: Greetings service
+    version: @project.version@
+
 eureka:
   client:
     healthcheck:
@@ -15,9 +21,3 @@ eureka:
     preferIpAddress: true
     statusPageUrlPath: /actuator/info
     healthCheckUrlPath: /actuator/health
-
-info:
-  app:
-    name: Eureka Client
-    description: Greetings service
-    version: @project.version@
