@@ -10,10 +10,10 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>turbine</artifactId>
+    <artifactId>turbine-stream</artifactId>
 
     <properties>
-        <start-class>romajs.demo.springcloudnetflix.TurbineApplication</start-class>
+        <start-class>romajs.demo.springcloudnetflix.TurbineStreamApplication</start-class>
     </properties>
 
     <dependencies>

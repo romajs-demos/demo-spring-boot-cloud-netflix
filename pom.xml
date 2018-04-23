@@ -14,7 +14,7 @@
         <module>eureka-client</module>
         <module>feign-client</module>
         <module>hystrix-dashboard</module>
-        <module>turbine</module>
+        <module>turbine-stream</module>
     </modules>
 
     <repositories>

@@ -50,11 +50,11 @@ services:
       - eureka-server:eureka-server
     environment:
       EUREKA_URI: http://eureka-server:8761/eureka
-  turbine:
+  turbine-stream:
     image: anapsix/alpine-java:8_jdk
     volumes:
-      - ./turbine/target/turbine.jar:/app.jar
-      - ./turbine/entrypoint.sh:/entrypoint.sh
+      - ./turbine-stream/target/turbine-stream.jar:/app.jar
+      - ./turbine-stream/entrypoint.sh:/entrypoint.sh
     entrypoint: /entrypoint.sh
     ports:
       - "8082:8082"
